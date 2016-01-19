@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 import UserItem from 'src/component/UserItem'
+import Login from 'src/component/Login'
 
 import actions from 'src/store/action'
 
@@ -16,6 +17,16 @@ class Main extends Component {
     }
   }
   render(){
+
+    const props = this.props
+    if (!this.props.username){
+      return <Login
+        username={props.loginUsername}
+        setLoginUsername={props.setLoginUsername}
+        onSubmit={props.setGithubUsername}
+      />
+    }
+
     return <div>
       Hello
 

@@ -7,6 +7,23 @@ const addUser = (user) => {
   }
 }
 
+const setGithubUsername = (username) => {
+  return {
+    type: c.SET_GITHUB_USERNAME,
+    payload: username
+  }
+}
+
+const setLoginUsername = (username) => {
+  return {
+    type: c.SET_LOGIN_USERNAME,
+    payload: username
+  }
+}
+
+
 export default {
-  addUser
+  addUser,
+  setGithubUsername,
+  setLoginUsername
 }

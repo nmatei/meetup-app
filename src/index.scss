@@ -1,5 +1,20 @@
-html, body {
+@import '~normalize.css/normalize';
+
+html, body, :global(#content) {
   box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  overflow: auto;
+}
+
+:global {
+  #content {
+    display: flex;
+    flex-flow: column;
+  }
 }
 
 body * {

@@ -1,6 +1,8 @@
 import keymirror from 'keymirror'
 
 export default keymirror({
+  SET_GITHUB_USERNAME: 1,
+
   ADD_USER: 1,
   REMOVE_USER: 1,
   UPDATE_USER: 1,
