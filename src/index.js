@@ -7,14 +7,20 @@ import store, { history } from 'src/store'
 
 import { Main, User } from 'src/page'
 
+import Presentation from 'src/presentation'
+
 import './index.scss'
 
 export default (
   <Provider store={store}>
     <Router history={history}>
+
+      <Route path="/presentation" component={Presentation} />
+      <Route path="/:slide" component={Presentation} />
+
       <Route path="/">
         <IndexRoute component={Main} />
-        <Route path=":login" component={User} />
+        <Route path="user/:login" component={User} />
       </Route>
     </Router>
   </Provider>

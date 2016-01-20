@@ -13,7 +13,7 @@ export default class UserItem extends Component {
 
     const className = join(props.classNames, styles.item)
 
-    return <Link to={`/${user.login}`} {...props} className={className}>
+    return <Link to={`/user/${user.login}`} {...props} className={className}>
       {user.name}
     </Link>
   }

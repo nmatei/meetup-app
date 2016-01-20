@@ -11,7 +11,9 @@ module.exports = {
     loaders: loaders
   },
   output: {
-    publicPath: '/assets'
+    path: __dirname + '/../dist',
+    publicPath: '/assets',
+    filename: 'bundle.js'
   },
   resolve: resolve,
   devServer: {

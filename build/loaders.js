@@ -15,5 +15,19 @@ module.exports = [
   {
     test: /\.css$/,
     loader: 'style-loader!css-loader'
+  },
+  {
+    test: /\.md$/,
+    loader: "html-loader!markdown-loader?gfm=false"
+  },
+  {
+    test: /\.svg$/,
+    loader: "url?limit=10000&mimetype=image/svg+xml",
+  }, {
+    test: /\.png$/,
+    loader: "url-loader?mimetype=image/png",
+  }, {
+    test: /\.jpg$/,
+    loader: "url-loader?mimetype=image/jpg",
   }
 ]
