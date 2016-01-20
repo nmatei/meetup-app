@@ -73,7 +73,7 @@ export default class Presentation extends React.Component {
     married: 'Yes - 2 children :)',
     job: 'Founter & CTO ZippyUI',
 
-    'twitter & github': 'radubrehar',
+    'twitter & github': '@radubrehar',
     zippyui: 'We open source carefully
       crafted UI components for React'
   }
