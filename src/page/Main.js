@@ -2,9 +2,12 @@ import React from 'react'
 import Component from 'react-class'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import assign from 'object-assign'
 
 import UserItem from 'src/component/UserItem'
 import Login from 'src/component/Login'
+import Header from 'src/component/Header'
+import UserList from 'src/component/UserList'
 
 import actions from 'src/store/action'
 
@@ -19,58 +22,26 @@ class Main extends Component {
   render(){
 
     const props = this.props
-    if (!this.props.username){
+
+    if (!props.user){
       return <Login
-        username={props.loginUsername}
+        loading={props.loading}
+        loginUsername={props.loginUsername}
         setLoginUsername={props.setLoginUsername}
-        onSubmit={props.setGithubUsername}
+        onSubmit={props.loadGithubInfo}
       />
     }
 
-    return <div>
-      Hello
-
-      <input
-        type="text"
-        value={this.state.username}
-        onKeyPress={this.onKeyPress}
-        onChange={e => this.setState({ username: e.target.value})}
-      />
-      {this.renderUsers()}
-      {this.props.children}
+    return <div style={{padding: 10}}>
+      <Header user={props.user} onLogout={props.logout}/>
+      <UserList users={props.users}/>
     </div>
   }
 
-  onKeyPress(e){
-    if (e.key === 'Enter' && this.state.username){
-      this.addUser(this.state.username)
-      this.setState({
-        username: ''
-      })
-    }
-  }
-
-  addUser(username){
-    this.props.addUser({
-      name: username
-    })
-  }
-
-  renderUsers(){
-    const users = this.props.users
-
-    return <ul style={{margin: 0, padding: 0}}>
-      {users.map(this.renderUser)}
-    </ul>
-  }
-
-  renderUser(user, index){
-    return <UserItem key={index} user={user} />
-  }
 }
 
 const select = (state) => {
-  return state
+  return assign({}, state.app, state.router)
 }
 
 export default connect(select, actions)(Main)

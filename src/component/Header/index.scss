@@ -1,0 +1,15 @@
+
+.info + .info {
+  margin-top: 10px;
+}
+.infoLabel {
+  vertical-align: middle;
+  color: gray;
+  width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.infoValue {
+  vertical-align: middle;
+}

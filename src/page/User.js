@@ -10,18 +10,18 @@ import User from 'src/component/User'
 class UserPage extends Component {
 
   render(){
-    const id = this.props.params.id
-    const users = this.props.users
-    const user = find(users, u => u.id == id)
+    const user = this.props.user
 
     return user?
-      <User {...this.props} user={user} />:
+      <User {...this.props} style={{padding: 10}} user={user} />:
       null
   }
 }
 
-const select = (state) => {
-  return state
+const select = (state, props) => {
+  return {
+    user: find(state.app.users, u => u.login === props.params.login)
+  }
 }
 
 export default connect(select, actions)(UserPage)

@@ -14,7 +14,7 @@ export default (
     <Router history={history}>
       <Route path="/">
         <IndexRoute component={Main} />
-        <Route path=":id" component={User} />
+        <Route path=":login" component={User} />
       </Route>
     </Router>
   </Provider>

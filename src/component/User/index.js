@@ -4,9 +4,20 @@ import Component from 'react-class'
 export default class User extends Component {
 
   render(){
-    return <div>
-      Users {this.props.user.name}
+    const { user } = this.props
+
+    return <div {...this.props} user={null}>
+      User {user.login}
+      {this.renderDetails(user)}
     </div>
+  }
+
+  renderDetails(user){
+    return <ul>
+      {Object.keys(user).map(k => {
+        return <li key={k}>{k}: {user[k]}</li>
+      })}
+    </ul>
   }
 }
 

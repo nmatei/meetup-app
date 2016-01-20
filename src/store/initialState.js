@@ -1,6 +1,8 @@
-import store from 'store'
+import storage from 'storage'
 
 export default {
-  loginUsername: store.get('username') || '',
-  username: store.get('username') || ''
+  loginUsername: storage.get('loginUsername') || '',
+  user: storage.get('user') || '',
+  loading: false,
+  users: []
 }
